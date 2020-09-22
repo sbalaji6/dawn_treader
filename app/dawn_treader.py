@@ -71,7 +71,7 @@ class USBImageBuilder(object):
             log_without_throw("building windows image", self.builder_log)
             self.mount_isos()
             log_without_throw("trying to copy_fiery_iso", self.builder_log)
-
+            self.product_isos.copy_installer_iso(self.destination.USBDestination)
             self.product_isos.copy_fiery_iso(self.destination.USBDestination)
             self.product_isos.copy_windows_isos(self.destination.USBDestination)
             self.product_isos.copy_and_modify_usersw_iso(self.destination.USBDestination)

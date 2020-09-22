@@ -68,6 +68,7 @@ def fixup_args(Args):
 
   Args.Destination = update_if_exists(ArgumentsOverride, Args.Destination, "dest")
   Args.ProductName = update_if_exists(ArgumentsOverride, Args.ProductName, "product")
+  Args.InstallerISO = update_if_exists(ArgumentsOverride, Args.InstallerISO, "installer_fiery_iso")
   Args.FieryISO = update_if_exists(ArgumentsOverride, Args.FieryISO, "system_sw_iso")
   Args.usersw = update_if_exists(ArgumentsOverride, Args.usersw, "user_sw_iso")
   Args.Adobe = update_if_exists(ArgumentsOverride, Args.Adobe, "adobe_iso")
@@ -107,6 +108,7 @@ def parse_arguments():
   ArgParser.add_argument("--pull_isos", help="copy ISOs locally before mounting them", default="True")
 
   ISOArgs = ArgParser.add_argument_group("Source ISOs")
+  ISOArgs.add_argument("--Installer", dest="InstallerISO", help="OS installer spec for decoupling", default=None)
   ISOArgs.add_argument("--Fiery", dest="FieryISO", help="fiery OS image ISO, eg:  /server_software/ellington1.0j/ellington1.0j_090815_090453.iso")
   ISOArgs.add_argument("--OS1", dest="OsISO1", help="first OS image ISO")
   ISOArgs.add_argument("--OS2", dest="OsISO2", help="second OS image ISO")

@@ -40,7 +40,7 @@ _CIFS_MOUNT = "CIFS"
 # to be the same as the dawn_treader_arguments args structure.
 
 def get_product_isos(Args):
-  return ProductISOSet(Args.FieryISO, Args.OsISO1, Args.OsISO2,Args.usersw, Args.Adobe, Args.FCPS)
+  return ProductISOSet(Args.InstallerISO,Args.FieryISO, Args.OsISO1, Args.OsISO2,Args.usersw, Args.Adobe, Args.FCPS)
 
 class ProductISOInstance(object):
   def __init__(self, iso_path):
@@ -102,9 +102,10 @@ class ProductISOInstance(object):
 #-----------------------------------------------------------------------
 
 class ProductISOSet(object):
-  def __init__(self, Fiery, OS1, OS2, UserSoftware, Adobe, FCPS):
+  def __init__(self, Installer, Fiery, OS1, OS2, UserSoftware, Adobe, FCPS):
     self.Log = None
     # representations of ISOs
+    self.Installer = ProductISOInstance(Installer)
     self.Fiery = ProductISOInstance(Fiery)
     self.Fiery.use_udf = True
     self.OS1 = ProductISOInstance(OS1)
@@ -118,7 +119,7 @@ class ProductISOSet(object):
     log_without_throw("Log attaching to ProductISOSet. Fiery = {0}/{1}, OS1 = {2}/{3}, OS2 = {3}/{4}, usersw = {4}/{5}".format(self.Fiery.iso_loc, self.Fiery.iso_name, self.OS1.iso_loc, self.OS1.iso_name, self.OS2.iso_loc, self.OS2.iso_name, self.UserSoftware.iso_loc, self.UserSoftware.iso_name), self.Log, WriteToStdout=False)
 
   def isos(self):
-    return [self.Fiery, self.OS1, self.OS2, self.UserSoftware, self.Adobe, self.FCPS]
+    return [self.Installer,self.Fiery, self.OS1, self.OS2, self.UserSoftware, self.Adobe, self.FCPS]
 
   # a helper function
   def simple_iso_image_copy(self, Srcdir, destdir, Log=None):
@@ -232,7 +233,12 @@ class ProductISOSet(object):
      r, out = dir_chmod(destdir, self.Log)
 
   def copy_fiery_iso(self, destdir):
-     self.simple_iso_image_copy(self.Fiery.dvd_mount_pt, destdir, self.Log)
+     if self.Installer == None:
+       self.simple_iso_image_copy(self.Fiery.dvd_mount_pt, destdir, self.Log)
+     else:
+       if self.Fiery.iso_name != None:
+         subdir = "Fiery"
+         self.copy_and_modify_subdir_iso(self.Fiery.dvd_mount_pt, destdir, subdir)  
 
   def copy_windows_isos(self, destdir):
      self.simple_iso_image_copy(self.OS1.dvd_mount_pt, destdir, self.Log)
@@ -243,6 +249,10 @@ class ProductISOSet(object):
     os.makedirs(actual_destdir)
     self.simple_iso_image_copy(mount_pt, actual_destdir, self.Log)
     self.modify_and_copy_subdir_xml(destdir, subdir)
+
+  def copy_installer_iso(self, destdir):
+    self.simple_iso_image_copy(self.Installer.dvd_mount_pt, destdir, self.Log)
+
 
   def copy_and_modify_usersw_iso(self, destdir):
     if self.UserSoftware.iso_name != None:
