@@ -1,0 +1,8 @@
+{
+  "product": "bowie2.0r",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://fcmrms03/core/os_win10_x64/os_win8_x64_051618_095818_os1.iso", "smb://fcmrms03/core/os_win8_x64/os_win8_x64_051618_095818_os2.iso" ],
+  "system_sw_iso": "smb://fcmrms03/iso/server_software/bowie2.0r/bowie2.0r_090918_135400.iso",
+  "user_sw_iso": "smb://fcmrms03/iso/user_software/bowie2.0r/bowie2.0r_090918_135400.iso"
+}

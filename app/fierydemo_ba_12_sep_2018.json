@@ -1,0 +1,9 @@
+{
+  "product": "fierydemo_HSIJ_flame8.0",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://blrmrms03.efi.com/core/os_win10_x64_blade/os_win10_x64_blade_113017_152329_os1.iso", "smb://blrmrms03.efi.com/core/os_win10_x64_blade/os_win10_x64_blade_113017_152329_os2.iso"],
+  "system_sw_iso": "smb://blrmrms03.efi.com/iso/server_software/fierydemo_HSIJ_flame8.0/server.fierydemo_HSIJ_flame8.0_090618_033413.iso",
+  "user_sw_iso": "smb://blrmrms03.efi.com/iso/user_software/fierydemo_HSIJ_flame8.0/client.fierydemo_HSIJ_flame8.0_090618_033413.iso"
+}
+

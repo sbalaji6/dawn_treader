@@ -1,0 +1,8 @@
+{
+  "product":"fierydemo_HSIJ_flame6.0",
+  "dest": "file://installers",
+  "product_os":"windows",
+  "os_isos":["smb://fcmrms03/core/os_win8_x64/os_win8_x64_092415_120046_os1.iso","smb://fcmrms03/core/os_win8_x64/os_win8_x64_092415_120046_os2.iso"],
+  "system_sw_iso":"smb://fcmrms03/iso/server_software/fierydemo_HSIJ_flame6.0/server.fierydemo_HSIJ_flame6.0_120915_163639.iso",
+  "user_sw_iso":"smb://fcmrms03/iso/user_software/fierydemo_HSIJ_flame6.0/client.fierydemo_HSIJ_flame6.0_120915_161952.iso"
+}    

@@ -1,0 +1,9 @@
+{
+  "product": "ellington",
+  "dest": "file://home/robertw/installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://fcmrms03/core/os_win8_x64/os_win8_x64_120214_222045_os1.iso", "smb://fcmrms03/core/os_win8_x64/os_win8_x64_120214_222045_os2.iso" ],
+  "system_sw_iso": "smb://fcmrms03/iso/server_software/ellington-1.0-RDRTPCBpTcK/ellington-1.0-RDRTPCBpTcK_100415_165003.iso",
+  "user_sw_iso": "smb://fcmrms03/iso/user_software/ellington-1.0-RDRTPCBpTcK/client.ellington-1.0-RDRTPCBpTcK_100415_165003.iso",
+  "pull_isos": "True"
+}

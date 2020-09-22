@@ -1,0 +1,23 @@
+<script type="text/babel">
+
+   function TableHead() {
+     return (
+       <thead>
+       <tr>
+          <th title="ID">ID</th>
+          <th title="status">status</th>
+          <th title="product name">product name</th>
+       </tr>
+       </thead>
+     );
+   }
+   function TableRow(props) {
+     return (
+       <tr>
+          <td>{props.id}</td>
+          <td>{props.status}</td>
+          <td>{props.product_name}</td>
+       </tr>
+     );
+   }
+</script>

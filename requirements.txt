@@ -1,0 +1,8 @@
+argparse
+peewee
+Flask
+Jinja2
+Werkzeug
+MarkupSafe
+
+git+https://gitlab+deploy-token-4:kX3zrzkmg1gXCuyNx4Aj@gitlab-devops.efi.com/devops/mchammer

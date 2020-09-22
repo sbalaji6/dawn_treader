@@ -1,0 +1,8 @@
+{
+  "product": "bowie1.0j",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://fcmrms03/core/os_win10_x64/os_win10_x64_062817_171043_os1.iso", "smb://fcmrms03/core/os_win10_x64/os_win10_x64_062817_171043_os2.iso" ],
+  "system_sw_iso": "smb://fcmrms03/iso/server_software/bowie1.0j/bowie1.0j_112917_054726.iso",
+  "user_sw_iso": "smb://fcmrms03/iso/user_software/bowie1.0j/bowie1.0j_112817_115728.iso"
+}

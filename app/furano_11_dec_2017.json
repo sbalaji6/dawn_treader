@@ -1,0 +1,8 @@
+{
+  "product": "furano1.0r",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://fcmrms03/core/os_win10_x64/os_win10_x64_062817_171043_os1.iso"],
+  "system_sw_iso": "smb://fcmrms03/iso/server_software/furano2.1/furano2.1r_121117_134539.iso",
+  "user_sw_iso": "smb://fcmrms03/iso/user_software/furano2.1/furano2.1r_115242.iso"
+}

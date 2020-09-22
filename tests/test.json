@@ -1,0 +1,10 @@
+{
+  "product": "fierydemo_flame6.0",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://fcmrms03/core/os_win8_x64/os_win8_x64_120815_112314_os1.iso", "smb://fcmrms03/core/os_win8_x64/os_win8_x64_120815_112314_os2.iso" ],
+  "system_sw_iso": "smb://fcmrms03/iso/server_software/fierydemo_flame6.0/fierydemo_flame6.0_052316_023353.iso",
+  "user_sw_iso": "smb://fcmrms03/iso/user_software/fierydemo_flame6.0/fierydemo_flame6.0_052316_023353.iso",
+  "adobe_iso": "smb://fcmrms03/iso/core/acrobatXI/acrobatXI_072814_153839.iso",
+  "fcps_iso": "smb://fcmrms03/iso/core/profiler/profiler_4.9_051916_162618.iso"
+}

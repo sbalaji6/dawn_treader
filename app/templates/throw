@@ -1,0 +1,2 @@
+
+            <TableRow id = {{usb_datum.id}}, status = {{usb_datum.status}}, product_name = {{usb_datum.product_name}}/>

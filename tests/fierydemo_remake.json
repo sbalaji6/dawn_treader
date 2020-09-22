@@ -1,0 +1,8 @@
+{
+  "product": "fierydemo_flame9.0",
+  "dest": "file://installers",
+  "product_os": "windows",
+  "os_isos": [ "smb://blrmrms03/core/os_win10_x64/os_win10_x64_070920_120609_os1.iso", "smb://blrmrms03/core/os_win10_x64/os_win10_x64_070920_120609_os2.iso" ],
+  "system_sw_iso": "smb://blrmrms03/iso/server_software/fiery_demo_flame_9.0/server.fiery_demo_flame_9.0_090620_152336.iso",
+  "user_sw_iso": "smb://blrmrms03/iso/user_software/fiery_demo_flame_9.0/client.fiery_demo_flame_9.0_082420_163200.iso"
+}

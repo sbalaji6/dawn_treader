@@ -1,0 +1,19 @@
+<script type="text/babel">
+
+function USBTable() {
+  return (
+     <div>
+       <table class="table table-bordered table-responsive table-hover table-condensed">
+          <TableHead/>
+          <tbody>
+         {% for datum in data %}
+              <TableRow id="{{datum.id|string}}" status="{{datum.status}}" product_name="{{datum.product_name}}"/>
+         {% endfor %}
+         </tbody>
+       </table>
+     </div>
+  );
+}
+
+ReactDOM.render( <USBTable />, document.getElementById("usb_table") );
+</script>
