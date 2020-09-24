@@ -8,6 +8,7 @@ from dawn_treader_helpers import generate_iso_source_location_mount_point_name
 from dawn_treader_helpers import generate_dvd_image_mount_point_name
 from dawn_treader_helpers import prepend_if_needed
 from dawn_treader_helpers import replace_information_in_xml_file
+from dawn_treader_helpers import replace_information_in_xml_file_flame9
 from dawn_treader_helpers import get_local_iso_storage
 
 from dawn_treader_subprocess import mount_network_fileshare
@@ -280,8 +281,14 @@ class ProductISOSet(object):
       full_path_to_subdir = os.path.join(destdir, subdir)
       xml_name = self.get_subdir_xml(full_path_to_subdir)
       xml = os.path.join(full_path_to_subdir, xml_name)
-
-      retval = replace_information_in_xml_file(subdir, xml)
+      retval = ""
+      print("balaji Installer " ,self.Installer)
+      if self.Installer == None:
+        print("balaji debug Installer is null")
+        retval = replace_information_in_xml_file(subdir, xml)
+      else:
+        print("balaji debug Installer is not null")
+        retval = replace_information_in_xml_file_flame9(subdir, xml)  
       log_without_throw(retval, self.Log)
 
       new_xml = os.path.join(destdir, xml_name)
