@@ -99,6 +99,7 @@ def replace_information_in_xml_file(Subdir, XMLFileName):
       return "stuff replaced in xml file {0}\n".format(XMLFileName)
 
 def replace_information_in_xml_file_flame9(Subdir, XMLFileName):
+   print("balaji going to replace file : " + XMLFileName)
    try:
     if Subdir == None:
         return "unable to replace information in a file located in a nonexistent directory\n"

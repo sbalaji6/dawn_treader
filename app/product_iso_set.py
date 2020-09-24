@@ -282,7 +282,7 @@ class ProductISOSet(object):
       xml_name = self.get_subdir_xml(full_path_to_subdir)
       xml = os.path.join(full_path_to_subdir, xml_name)
       retval = ""
-      print("balaji Installer " ,self.Installer)
+      #print("balaji Installer " ,self.Installer)
       if self.Installer == None:
         print("balaji debug Installer is null")
         retval = replace_information_in_xml_file(subdir, xml)
