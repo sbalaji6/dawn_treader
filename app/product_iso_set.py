@@ -237,7 +237,10 @@ class ProductISOSet(object):
   def update_root_branding_folder(self, rootDir,subdir):
     srcFolder = os.path.join(rootDir, subdir,"Branding")
     destFolder = os.path.join(rootDir,"Branding")
+    print("balaji ",srcFolder)
+    print("balaji ",destFolder)
     if os.path.isdir(srcFolder):
+      print("balaji copydir")
       copydir(srcFolder,destFolder)
 
   def copy_fiery_iso(self, destdir):
