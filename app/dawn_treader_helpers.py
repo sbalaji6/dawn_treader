@@ -6,6 +6,7 @@ import fileinput
 import dawn_treader_credentials
 from xml.etree.ElementTree import ElementTree
 import xml
+import shutil
 
 from usb_install_builder_error import USBInstallBuilderError
 
