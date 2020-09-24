@@ -4,6 +4,8 @@ import datetime
 import errno
 import fileinput
 import dawn_treader_credentials
+from xml.etree.ElementTree import ElementTree
+import xml
 
 from usb_install_builder_error import USBInstallBuilderError
 
