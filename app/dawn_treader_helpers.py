@@ -102,7 +102,6 @@ def replace_information_in_xml_file(Subdir, XMLFileName):
       return "stuff replaced in xml file {0}\n".format(XMLFileName)
 
 def replace_information_in_xml_file_flame9(Subdir, XMLFileName):
-   print("balaji going to replace file : " + XMLFileName)
    try:
     if Subdir == None:
         return "unable to replace information in a file located in a nonexistent directory\n"
@@ -117,16 +116,16 @@ def replace_information_in_xml_file_flame9(Subdir, XMLFileName):
         srcNode = tree.find(".//{http://PlatformGroup.efi.com/Fiery/SubsystemSetup}RecoverySetupFileCopy")
         srcNode[0].text = '\\' +  Subdir
 
-        p = tree.findall(".//{http://PlatformGroup.efi.com/Fiery/SubsystemSetup}ExternalTaskInfo")
+        p = tree.findall(".//*[@MediaMountPoint]")
         for item in p:
             temp = item.attrib['MediaMountPoint']
             print(temp)
             item.attrib['MediaMountPoint'] = "\\" + Subdir  + temp
         xml.etree.ElementTree.dump(tree)
         tree.write(XMLFileName+ ".new",xml_declaration=True, method='xml', encoding='UTF-8')
-        print("balaji debug Replaced file : " + XMLFileName)
         shutil.move(XMLFileName, XMLFileName + ".orig")
         shutil.move(XMLFileName + ".new",XMLFileName)
+        os.remove(XMLFileName + ".orig")
    except Exception as e:   
      return "failed to  replace in xml file {0}\n".format(XMLFileName)
    return "new stuff replaced in xml file {0}\n".format(XMLFileName)  
