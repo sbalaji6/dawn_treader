@@ -119,7 +119,6 @@ def replace_information_in_xml_file_flame9(Subdir, XMLFileName):
         p = tree.findall(".//*[@MediaMountPoint]")
         for item in p:
             temp = item.attrib['MediaMountPoint']
-            print(temp)
             item.attrib['MediaMountPoint'] = "\\" + Subdir  + temp
         xml.etree.ElementTree.dump(tree)
         tree.write(XMLFileName+ ".new",xml_declaration=True, method='xml', encoding='UTF-8')
@@ -130,6 +129,22 @@ def replace_information_in_xml_file_flame9(Subdir, XMLFileName):
      return "failed to  replace in xml file {0}\n".format(XMLFileName)
    return "new stuff replaced in xml file {0}\n".format(XMLFileName)  
 
+
+def copydir(source, dest):
+    """Copy a directory structure overwriting existing files"""
+    for root, dirs, files in os.walk(source):
+        if not os.path.isdir(root):
+            os.makedirs(root)
+
+        for file in files:
+            rel_path = root.replace(source, '').lstrip(os.sep)
+            dest_path = os.path.join(dest, rel_path)
+
+            if not os.path.isdir(dest_path):
+                os.makedirs(dest_path)
+
+            shutil.copyfile(os.path.join(root, file), os.path.join(dest_path, file))
+            
 
 
 

@@ -10,6 +10,7 @@ from dawn_treader_helpers import prepend_if_needed
 from dawn_treader_helpers import replace_information_in_xml_file
 from dawn_treader_helpers import replace_information_in_xml_file_flame9
 from dawn_treader_helpers import get_local_iso_storage
+from dawn_treader_helpers import copydir
 
 from dawn_treader_subprocess import mount_network_fileshare
 from dawn_treader_subprocess import mount_dvd_image
@@ -233,13 +234,20 @@ class ProductISOSet(object):
   def copy_windows_permission_override_behavior(self, destdir):
      r, out = dir_chmod(destdir, self.Log)
 
+  def update_root_branding_folder(self, rootDir,subdir):
+    srcFolder = os.path.join(rootDir, subdir,"Branding")
+    destFolder = os.path.join(rootDir,"Branding")
+    if os.path.isdir(srcFolder):
+      copydir(srcFolder,destFolder)
+
   def copy_fiery_iso(self, destdir):
      if self.Installer == None:
        self.simple_iso_image_copy(self.Fiery.dvd_mount_pt, destdir, self.Log)
      else:
        if self.Fiery.iso_name != None:
          subdir = "Fiery"
-         self.copy_and_modify_subdir_iso(self.Fiery.dvd_mount_pt, destdir, subdir)  
+         self.copy_and_modify_subdir_iso(self.Fiery.dvd_mount_pt, destdir, subdir) 
+         self.update_root_branding_folder(destdir, subdir) 
 
   def copy_windows_isos(self, destdir):
      self.simple_iso_image_copy(self.OS1.dvd_mount_pt, destdir, self.Log)
@@ -282,7 +290,6 @@ class ProductISOSet(object):
       xml_name = self.get_subdir_xml(full_path_to_subdir)
       xml = os.path.join(full_path_to_subdir, xml_name)
       retval = ""
-      #print("balaji Installer " ,self.Installer)
       if self.Installer == None:
         print("balaji debug Installer is null")
         retval = replace_information_in_xml_file(subdir, xml)
