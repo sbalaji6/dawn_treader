@@ -93,12 +93,14 @@ def iterative_rsync(src_dir, dest_dir, override_perms, log=None):
  try:
    src_list = os.listdir(src_dir)
    log_without_throw("--iterative_rsync: ({0}) : {1}---\n".format(src_dir, src_list), log)
+   print("balaji --iterative_rsync: ({0}) : {1}---\n".format(src_dir, src_list), log)
    for _src in src_list:
       full_src_name = os.path.join(src_dir, _src)
       if os.path.isdir(full_src_name):
          full_dst_name = os.path.join(dest_dir, _src)
          try:
            log_without_throw(" making directory {0}\n".format(full_dst_name), log)
+           print("balaji making directory {0}\n".format(full_dst_name), log)
            os.makedirs(full_dst_name)
          except OSError as e:
            log_without_throw("suppressing OS Error {0} from os.makedirs\n".format(e.errno), log)
@@ -106,6 +108,7 @@ def iterative_rsync(src_dir, dest_dir, override_perms, log=None):
       else:
          r, out = rsync_file_with_retries(os.path.join(src_dir, _src), dest_dir, override_perms, log)
  except Exception as e:
+   print("balaji...........")
    log_and_throw("iterative rsync encountered {}".format(e))
   
          
