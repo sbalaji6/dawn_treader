@@ -244,7 +244,7 @@ class ProductISOSet(object):
       copydir(srcFolder,destFolder)
 
   def copy_fiery_iso(self, destdir):
-     if self.Installer == None:
+     if self.Installer.iso_name == None:
        self.simple_iso_image_copy(self.Fiery.dvd_mount_pt, destdir, self.Log)
      else:
        if self.Fiery.iso_name != None:
@@ -293,7 +293,7 @@ class ProductISOSet(object):
       xml_name = self.get_subdir_xml(full_path_to_subdir)
       xml = os.path.join(full_path_to_subdir, xml_name)
       retval = ""
-      if self.Installer == None:
+      if self.Installer.iso_name == None:
         print("balaji debug Installer is null")
         retval = replace_information_in_xml_file(subdir, xml)
       else:
