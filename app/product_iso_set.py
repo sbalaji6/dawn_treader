@@ -237,10 +237,7 @@ class ProductISOSet(object):
   def update_root_branding_folder(self, rootDir,subdir):
     srcFolder = os.path.join(rootDir, subdir,"Branding")
     destFolder = os.path.join(rootDir,"Branding")
-    print("balaji ",srcFolder)
-    print("balaji ",destFolder)
     if os.path.isdir(srcFolder):
-      print("balaji copydir")
       copydir(srcFolder,destFolder)
 
   def copy_fiery_iso(self, destdir):
@@ -294,10 +291,8 @@ class ProductISOSet(object):
       xml = os.path.join(full_path_to_subdir, xml_name)
       retval = ""
       if self.Installer.iso_name == None:
-        print("balaji debug Installer is null")
         retval = replace_information_in_xml_file(subdir, xml)
       else:
-        print("balaji debug Installer is not null")
         retval = replace_information_in_xml_file_flame9(subdir, xml)  
       log_without_throw(retval, self.Log)
 
