@@ -235,10 +235,19 @@ class ProductISOSet(object):
      r, out = dir_chmod(destdir, self.Log)
 
   def update_root_branding_folder(self, rootDir,subdir):
+    #Override branding folder from server spec to root of usb
     srcFolder = os.path.join(rootDir, subdir,"Branding")
-    destFolder = os.path.join(rootDir,"Branding")
+    destFolder = os.path.join(rootDir,"branding")
     if os.path.isdir(srcFolder):
       copydir(srcFolder,destFolder)
+
+    #Copy Master installer exe and dependencies from server spec to root of usb
+    fileList = ['FierySoftwareInstaller.exe','FieryInstallSupport64.dll','EfiMapMemory64.dll']
+    for item in fileList:
+      srcFile = os.path.join(rootDir, subdir,item)
+      destFile = os.path.join(rootDir,item)
+      shutil.copyfile(srcFile, destFile)
+
 
   def copy_fiery_iso(self, destdir):
      if self.Installer.iso_name == None:
