@@ -237,7 +237,10 @@ class ProductISOSet(object):
   def update_root_branding_folder(self, rootDir,subdir):
     #Override branding folder from server spec to root of usb
     srcFolder = os.path.join(rootDir, subdir,"Branding")
-    destFolder = os.path.join(rootDir,"branding")
+    destFolder = os.path.join(rootDir,"Branding")
+    oldBrandingFolder = os.path.join(rootDir,"branding")
+    #removing branding from installer spec
+    shutil.rmtree(oldBrandingFolder)
     if os.path.isdir(srcFolder):
       copydir(srcFolder,destFolder)
     #Copy Master installer exe and dependencies from server spec to root of usb
