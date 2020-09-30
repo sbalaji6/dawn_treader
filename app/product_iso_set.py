@@ -240,7 +240,6 @@ class ProductISOSet(object):
     destFolder = os.path.join(rootDir,"branding")
     if os.path.isdir(srcFolder):
       copydir(srcFolder,destFolder)
-
     #Copy Master installer exe and dependencies from server spec to root of usb
     fileList = ['FierySoftwareInstaller.exe','FieryInstallSupport64.dll','EfiMapMemory64.dll']
     for item in fileList:
